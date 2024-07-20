@@ -4,52 +4,93 @@
 # Perform the operation on the two numbers.
 # Print the result to the terminal.
 
+import json
+import os
+
 def prompt(message):
     print(f"==> {message}")
 
 def invalid_number(number_str):
     try:
-        int(number_str)
+        float(number_str)
     except ValueError:
         return True
 
     return False
 
-prompt('Welcome to calculator')
+project_directory = os.path.dirname(os.path.abspath(__file__))
+file_path = project_directory + '/message_data.json'
 
-prompt("What's the first number")
-number1 = input()
+with open(file_path, 'r') as f:
+    message_dictionary = json.load(f)
 
-while invalid_number(number1):
-    prompt("Hmm... that doesnt look like a valid number.")
+prompt('Select language:' + '\n' + '1) English' + '\n' + '2) Spanish')
+language_select = input()
+
+while language_select not in ['1', '2']:
+    prompt('Value must be 1 or 2')
+    language_select = input()
+
+if language_select == '1':
+    message_dictionary = message_dictionary['eng']
+elif language_select == '2':
+    message_dictionary = message_dictionary['spn']
+
+prompt(message_dictionary['welcome'])
+
+progression_flag = True
+
+while progression_flag:
+
+
+    prompt(message_dictionary['intro_1'])
     number1 = input()
 
-prompt("What's the second number")
-number2 = input()
+    while invalid_number(number1):
+        prompt(message_dictionary['error_1'])
+        number1 = input()
 
-while invalid_number(number2):
-    prompt("Hmm... that doesnt look like a valid number.")
+    prompt(message_dictionary['intro_2'])
     number2 = input()
 
-prompt('What operation would you like to perform?\n'
-      '1) Add 2) Subtract 3) Multiply 4) Divide')
+    while invalid_number(number2):
+        prompt(message_dictionary['error_1'])
+        number2 = input()
 
-operation = input()
+    prompt(message_dictionary['select'])
 
-while operation not in ["1", "2", "3", "4"]:
-    prompt('You must choose 1, 2, 3, 4')
     operation = input()
 
-match operation:
-    case '1':
-        output = int(number1) + int(number2)
-    case '2':
-        output = int(number1) - int(number2)
-    case '3':
-        output = int(number1) * int(number2)
-    case '4':
-        output = int(number1) * int(number2)
+    while operation not in ["1", "2", "3", "4"]:
+        prompt(message_dictionary['error_2'])
+        operation = input()
+
+    match operation:
+        case '1':
+            output = float(number1) + float(number2)
+        case '2':
+            output = float(number1) - float(number2)
+        case '3':
+            output = float(number1) * float(number2)
+        case '4':
+            output = float(number1) * float(number2)
 
 
 
-prompt(f'The result is: {output}')
+    prompt(message_dictionary['result'] + ' ' + str(output))
+
+    prompt(message_dictionary['proceed'])
+    continue_bool = input()
+
+    while continue_bool not in ['y' , 'n']:
+        prompt(message_dictionary['error_3'])
+        continue_bool = input()
+
+    if continue_bool == 'y':
+        progression_flag = True
+    elif continue_bool == 'n':
+        progression_flag = False
+
+        
+
+

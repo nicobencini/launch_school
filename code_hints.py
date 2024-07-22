@@ -14,5 +14,6 @@ with open(file_path, 'r') as f:
 project_directory = os.path.dirname(os.path.abspath(__file__))
 
 #Get user imput and prompt
-prompt('Select language:' + '\n' + '1) English' + '\n' + '2) Spanish')
+print('Welcome to program')
+user_input = input('Select language:' + '\n' + '1) English' + '\n' + '2) Spanish')
 language_select = input()

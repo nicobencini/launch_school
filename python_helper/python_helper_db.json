@@ -1,0 +1,12 @@
+{"User Input": "print('Welcome to program')\nuser_input = input('Select language: 1) English 2) Spanish')", 
+"Current Directory": "import os\nproject_directory = os.path.dirname(os.path.abspath(__file__))", 
+"Falsy": "In Python, the falsy values include False, 0, 0.0, None, \"\", and empty collections like [], () and {}. All other values, the truthy values, are said to evaluate to true. Note that saying that a value evaluates to true or false is not the same as saying that those values are True or False, or that they are equal to True or False. ", 
+"Truthy": "In Python, the falsy values include False, 0, 0.0, None, \"\", and empty collections like [], () and {}. All other values, the truthy values, are said to evaluate to true. Note that saying that a value evaluates to true or false is not the same as saying that those values are True or False, or that they are equal to True or False. ", 
+"Literals": "You can use literals to represent most data type values. A literal is any syntactic notation that lets you directly represent an object in source code. For instance, all of the following are literals in Python:\n'Hello, world!'   # str literal \n3.141592          # float literal\nTrue              # bool literal\n{'a': 1, 'b': 2}  # dict literal\n[1, 2, 3]         # list literal\n(4, 5, 6)         # tuple literal\n{7, 8, 9}         # set literal",
+"Read Json File": "import json\nwith open(PATH, 'r') as f:\n    info_dictionary = json.load(f)",
+"Write Json File": "import json\nwith open(PATH, 'w') as f:\n    json.dump(info_dictionary, f)",
+"Primatives": "These are the most primitive or basic data structures. Python has four primitive data types which include integers, floats, strings, and booleans.",
+"Sort List Alphabetically": "sorted(lst)",
+"Variables": "Variables are merely names used to identify values (that is, data). In fact, they are also called identifiers, a more general term that applies to variables, constants, function names, class names, and more.All of the following should be treated as variables:\n-Variables and constants\n-Function names\n-Function parameters\n\nNote in particular that dictionary key names are not variables, nor are the elements of a collection."
+
+}
